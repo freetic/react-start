@@ -5,7 +5,18 @@ class CreateContent extends Component {
         return (
             <div>
                 <h1>Create</h1>
-                <p>{this.props.desc}</p>
+                <form action="/create_process" method={"post"}
+                    onSubmit={function(e){
+                        e.preventDefault();
+                        this.props.onSubmit(e.target.title.value, e.target.desc.value);
+                    }.bind(this)}
+                >
+                    <p><input type="text" name={"title"} placeholder={"title"}/></p>
+                    <p>
+                        <textarea name="desc" id="" cols="30" rows="10" placeholder={"description"}></textarea>
+                    </p>
+                    <p><input type="submit" value={"전송"}/></p>
+                </form>
             </div>
         );
     }

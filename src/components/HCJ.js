@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 
 class HCJ extends Component {
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    // }
+
     render() {
         var lists = [];
         var data = this.props.data;
