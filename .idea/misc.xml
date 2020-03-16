@@ -3,7 +3,10 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="JSX" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+=======
+>>>>>>> 9a754035fb42c3c57d0e38b0a098f59546dbf7dc
 </project>
