@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import './App.css';
-import Content from "./components/Content"
-import HCJ from "./components/HCJ"
+import ReadContent from "./components/ReadContent";
+import CreateContent from "./components/CreateContent";
+import HCJ from "./components/HCJ";
 import Subject from "./components/Subject";
+import Control from "./components/Control";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             mode: 'read',
-            welcome: {title: 'WelCome', desc: "World Wide Web!"},
             selected_content_id: 2,
             subject: {title: 'WEB', sub: "World Wide Web"},
             welcome: {title: 'WelCome!', desc: 'Hello, React!!!!!'},
@@ -22,10 +23,11 @@ class App extends Component {
     }
 
     render() {
-        var _title, _desc = null;
+        var _title, _desc, _article = null;
         if (this.state.mode === 'welcome') {
             _title = this.state.welcome.title;
             _desc = this.state.welcome.desc;
+            _article = <ReadContent title={_title} desc={_desc}></ReadContent>
         } else if (this.state.mode === 'read') {
             var i = 0;
             while (i < this.state.contents.length) {
@@ -57,10 +59,12 @@ class App extends Component {
                     data={this.state.contents}
                 >
                 </HCJ>
-                <Content
-                    title={_title}
-                    desc={_desc}>
-                </Content>
+                <Control
+                    onChangeMode={function(_mode){
+                        this.setState({mode:_mode});
+                    }.bind(this)}
+                ></Control>
+                {_article}
             </div>
         );
     }
