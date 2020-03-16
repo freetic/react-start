@@ -5,7 +5,13 @@ class HCJ extends Component{
         var lists = [];
         var data = this.props.data;
         for(var i = 0; i < data.length; i++){
-            lists.push(<li key={data[i].id}><a href="/content/+data[i].id">{data[i].title}</a></li>);
+            lists.push(<li key={data[i].id}><a
+                href="/content/+data[i].id"
+                onClick={function(e){
+                    e.preventDefault();
+                    this.props.onChangePage();
+                }}
+            >{data[i].title}</a></li>);
         }
 
         return(
